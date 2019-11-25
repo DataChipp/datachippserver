@@ -13,12 +13,13 @@ Edm.String	String	A UTF-16-encoded value. String values may be up to 64 KB in si
 @prefix = https
 @hostname= datachippdata.azurewebsites.net
 @table= prod
-@partition = part1
+@partition = part2
 
 ###
 
 # @name getItems
 GET {{prefix}}://{{hostname}}/api/items/{{table}}/{{partition}} HTTP/1.1
+
 
 
 ###

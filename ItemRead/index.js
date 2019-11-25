@@ -49,7 +49,8 @@ module.exports = async function (context, req) {
     }
     else {
         // return the top x items
-        var query = new azure.TableQuery().top(100);
+        var query = new azure.TableQuery()
+        .where('PartitionKey == ?', partitionName).top(100);
 
         try {
             result = await queryEntitiesAsync(tableService, tableName, query, null);
