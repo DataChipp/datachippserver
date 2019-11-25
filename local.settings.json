@@ -1,8 +1,0 @@
-{
-  "IsEncrypted": false,
-  "Values": {
-    "FUNCTIONS_WORKER_RUNTIME": "node",
-    "AzureWebJobsStorage": "{AzureWebJobsStorage}",
-    "AZURE_STORAGE_CONNECTION_STRING": "DefaultEndpointsProtocol=https... [REPLACE ENTIRE STRING WITH YOUR CONNECTION STRING]"    
-  }
-}
