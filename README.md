@@ -61,6 +61,33 @@ Click OK and Save. You should see the app setting in the list
 
 
 ## Testing
+There are 2 test files/scripts in the repo.  
+  
+test.http --> local testing  
+  
+testAzure.http --> Azure testing  
+! update the @hostname= datachippdata.azurewebsites.net variable  
+  
+Both test perform CRUD test:  
+Get all items  
+
+Create an Item  
+Read the Item created  
+Update the Item created  
+Delete the Item created  
+
+
+## Roadmap
+1. additional error handling  
+2. add API Key for calling the functions  
+3. integrate with proxy server  
+
+
+
+
+
+
+
 
 
 
