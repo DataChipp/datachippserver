@@ -10,6 +10,8 @@ content-type: application/json
     "num2": 2
 }
 
+###
 
+DELETE http://localhost:7071/api/items/mytable/brian/k3esrvioqx2g8tz8qto HTTP/1.1
 
 ###

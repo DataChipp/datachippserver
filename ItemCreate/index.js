@@ -38,6 +38,7 @@ module.exports = async function (context, req) {
 
     if (req.body) {
         tableName = req.params.table;
+        partitionName = req.params.partition;
 
         try {
             result = await tableExistsAsync(tableService, tableName);
@@ -48,8 +49,6 @@ module.exports = async function (context, req) {
             // Calling status like this will automatically trigger a context.done()
             context.res.status(500).json({ error: error });            
         }
-
-        partitionName = req.params.partition;
 
         const item = req.body;
         item["PartitionKey"] = partitionName;
