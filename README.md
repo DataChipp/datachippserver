@@ -8,7 +8,8 @@ Clone or download Zip
 ```javascript
 rename UPDATE.local.settings.json to local.settings.json
 update "AZURE_STORAGE_CONNECTION_STRING" variable to a connection string in your Azure Portal storage. 
-See Azure Functoin section below if you need to create an Azure Storage resource
+See Azure Function section below if you need to create an Azure Storage resource
+```
 
 **VS Code**
 ```javascript
