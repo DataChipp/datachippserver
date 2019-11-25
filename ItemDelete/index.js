@@ -31,7 +31,6 @@ module.exports = async function (context, req) {
         try {
             result = await deleteEntityAsync(tableService, tableName, item);
             context.res.status(204).send();
-            context.log("result: " + result);
         } catch (e) {
             context.log("Error: " + e);
             context.res.status(e.statusCode).json({ error: e });            

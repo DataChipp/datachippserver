@@ -1,4 +1,3 @@
-
 ### ---- Datatypes for Azure Storage
 Edm.Binary	byte[]	An array of bytes up to 64 KB in size.
 Edm.Boolean	bool	A Boolean value.
@@ -8,46 +7,54 @@ Edm.Guid	Guid	A 128-bit globally unique identifier.
 Edm.Int32	Int32 or int	A 32-bit integer.
 Edm.Int64	Int64 or long	A 64-bit integer.
 Edm.String	String	A UTF-16-encoded value. String values may be up to 64 KB in size. Note that the maximum number of characters supported is about 32 K or less.
+###
 
+
+@prefix = https
+@hostname= datachippdata.azurewebsites.net
+@table= prod
+@partition = part1
 
 ###
 
-POST https://datachippdata.azurewebsites.net/api/items/table1/part1 HTTP/1.1
+# @name getItems
+GET {{prefix}}://{{hostname}}/api/items/{{table}}/{{partition}} HTTP/1.1
+
+
+###
+# @name createItem
+POST {{prefix}}://{{hostname}}/api/items/{{table}}/{{partition}} HTTP/1.1
 content-type: application/json
 
 {
-    "mynum@odata.type":"Edm.Int32",
+    "mynum@data.type":"Edm.Int32",
     "mynum": 1,
     "mybool@odata.type":"Edm.Boolean",  
+    "mybool": false,    
+    "mytext": "test text"
+}
+
+###
+@itemId = {{createItem.response.body.RowKey._}}
+
+# @name getCreatedItem
+GET {{prefix}}://{{hostname}}/api/items/{{table}}/{{partition}}/{{itemId}} HTTP/1.1
+
+
+###
+# @name updateCreatedItem
+PUT {{prefix}}://{{hostname}}/api/items/{{table}}/{{partition}}/{{itemId}} HTTP/1.1
+content-type: application/json
+
+{
+    "mynum": 1,
     "mybool": true,    
     "mytext": "test text"
 }
 
 ###
-
-GET https://datachippdata.azurewebsites.net/api/items/table1/part1 HTTP/1.1
-
-###
-
-
-GET https://datachippdata.azurewebsites.net/api/items/table1/part1/ HTTP/1.1
-
-
-###
-
-PUT https://datachippdata.azurewebsites.net/api/items/table1/part1/a9e8b571-2034-4f3d-8980-b6b41abf0a96 HTTP/1.1
-content-type: application/json
-
-{
-    "mynum": 2,
-    "mybool": false,    
-    "mytext": "test text"
-}
-
-
-###
-
-DELETE https://datachippdata.azurewebsites.net/api/items/table1/part1/8ed8f790-d6fc-4079-baf9-27aff8a5fc02 HTTP/1.1
+# @name deleteCreatedItem
+DELETE {{prefix}}://{{hostname}}/api/items/{{table}}/{{partition}}/{{itemId}} HTTP/1.1
 
 ###
 

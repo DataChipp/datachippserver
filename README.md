@@ -1,5 +1,5 @@
-# datachippserver
-Data Chipp Server:  A no configuration Data RESTfull API using Azure Functions and Node
+# data server
+Data Server:  A no configuration Data RESTfull API using Azure Functions and Node
 
 ### Running with port 7071:
 
