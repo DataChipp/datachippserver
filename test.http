@@ -1,0 +1,15 @@
+
+
+###
+
+POST http://localhost:7071/api/items/mytable/brian HTTP/1.1
+content-type: application/json
+
+{
+    "num1": 1,
+    "num2": 2
+}
+
+
+
+###

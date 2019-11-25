@@ -1,0 +1,23 @@
+{
+  "name": "datachipp",
+  "version": "1.0.0",
+  "description": "Datachipp: Stop solving for individual data problems by using universal data storage solution",
+  "main": "index.js",
+  "dependencies": {
+    "azure-storage": "^2.10.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"No tests yet...\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataChipp/dataserver.git"
+  },
+  "author": "Chippewa Sofware",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataChipp/dataserver/issues"
+  },
+  "homepage": "https://github.com/DataChipp/dataserver#readme"
+}
