@@ -24,9 +24,13 @@ module.exports = async function (context, req) {
     let result;    
 
     const id = req.params.id;
+
     if (req.body) {
-        // create a temporary object with PartitionKey & RowKey of the item which should be deleted
-        var item = { PartitionKey: partitionName, RowKey: id };
+        // create a temporary object with PartitionKey & RowKey of the item which should be updated
+        var item = req.body;
+        item.RowKey = id;
+        item.PartitionKey = partitionName;
+
 
         try {
             // Depending on how you want this to behave you can also use tableService.mergeEntity

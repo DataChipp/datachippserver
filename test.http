@@ -22,12 +22,12 @@ GET http://localhost:7071/api/items/mytable/brian/k3evhoohpjwion6dhwh HTTP/1.1
 
 ###
 
-PUT http://localhost:7071/api/items/mytable/brian/k3evhoohpjwion6dhwh HTTP/1.1
+PUT http://localhost:7071/api/items/mytable/brian/10b1d45b-ce0e-47da-a0a6-584fa689782c HTTP/1.1
 content-type: application/json
 
 {
     "num1": 1,
-    "num2": 2-update
+    "num2": "2"
 }
 
 

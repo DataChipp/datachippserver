@@ -65,7 +65,7 @@ module.exports = async function (context, req) {
             context.res.status(201).json(result);
         } catch (e) {
             // In case of an error we return an appropriate status code and the error returned by the DB
-            context.res.status(e.statusCode).json({ error: error });
+            context.res.status(e.statusCode).json({ error: e });
         }
     }
     else {

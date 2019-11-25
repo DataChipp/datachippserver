@@ -1,0 +1,53 @@
+
+### ---- Datatypes for Azure Storage
+Edm.Binary	byte[]	An array of bytes up to 64 KB in size.
+Edm.Boolean	bool	A Boolean value.
+Edm.DateTime	DateTime	A 64-bit value expressed as Coordinated Universal Time (UTC). The supported DateTime range begins from 12:00 midnight, January 1, 1601 A.D. (C.E.), UTC. The range ends at December 31, 9999.
+Edm.Double	double	A 64-bit floating point value.
+Edm.Guid	Guid	A 128-bit globally unique identifier.
+Edm.Int32	Int32 or int	A 32-bit integer.
+Edm.Int64	Int64 or long	A 64-bit integer.
+Edm.String	String	A UTF-16-encoded value. String values may be up to 64 KB in size. Note that the maximum number of characters supported is about 32 K or less.
+
+
+###
+
+POST https://datachippdata.azurewebsites.net/api/items/table1/part1 HTTP/1.1
+content-type: application/json
+
+{
+    "mynum@odata.type":"Edm.Int32",
+    "mynum": 1,
+    "mybool@odata.type":"Edm.Boolean",  
+    "mybool": true,    
+    "mytext": "test text"
+}
+
+###
+
+GET https://datachippdata.azurewebsites.net/api/items/table1/part1 HTTP/1.1
+
+###
+
+
+GET https://datachippdata.azurewebsites.net/api/items/table1/part1/ HTTP/1.1
+
+
+###
+
+PUT https://datachippdata.azurewebsites.net/api/items/table1/part1/a9e8b571-2034-4f3d-8980-b6b41abf0a96 HTTP/1.1
+content-type: application/json
+
+{
+    "mynum": 2,
+    "mybool": false,    
+    "mytext": "test text"
+}
+
+
+###
+
+DELETE https://datachippdata.azurewebsites.net/api/items/table1/part1/8ed8f790-d6fc-4079-baf9-27aff8a5fc02 HTTP/1.1
+
+###
+
