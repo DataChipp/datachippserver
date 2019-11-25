@@ -12,11 +12,17 @@ content-type: application/json
 
 ###
 
-DELETE http://localhost:7071/api/items/mytable/brian/k3esrvioqx2g8tz8qto HTTP/1.1
+GET http://localhost:7071/api/items/mytable/brian HTTP/1.1
 
 ###
 
-PUT http://localhost:7071/api/items/mytable/brian/k3ess0z8akq2wb2rg5l HTTP/1.1
+
+GET http://localhost:7071/api/items/mytable/brian/k3evhoohpjwion6dhwh HTTP/1.1
+
+
+###
+
+PUT http://localhost:7071/api/items/mytable/brian/k3evhoohpjwion6dhwh HTTP/1.1
 content-type: application/json
 
 {
@@ -24,14 +30,10 @@ content-type: application/json
     "num2": 2-update
 }
 
-###
-
-
-GET http://localhost:7071/api/items/mytable/brian HTTP/1.1
 
 ###
 
-
-GET http://localhost:7071/api/items/mytable/brian/k3esrz4azxg486ub37r HTTP/1.1
+DELETE http://localhost:7071/api/items/mytable/brian/k3evhoohpjwion6dhwh HTTP/1.1
 
 ###
+
