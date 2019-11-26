@@ -69,12 +69,12 @@ testAzure.http --> Azure testing
 ! update the @hostname= datachippdata.azurewebsites.net variable  
   
 Both test perform CRUD test:  
-Get all items  
+Get all chipps  
 
-Create an Item  
-Read the Item created  
-Update the Item created  
-Delete the Item created  
+Create the Chipp  
+Read   the Chipp 
+Update the Chipp 
+Delete the Chipp 
 
 
 ## Roadmap

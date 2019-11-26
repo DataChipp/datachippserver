@@ -39,7 +39,7 @@ function uuidv4() {
 
   
 module.exports = async function (context, req) {
-    context.log('Start ItemCreate');
+    context.log('Start ChippCreate');
 
     let tableName = req.params.table;
     let partitionName = req.params.partition;

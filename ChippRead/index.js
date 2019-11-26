@@ -31,7 +31,7 @@ async function queryEntitiesAsync(tableService, ...args) {
 };
 
 module.exports = async function (context, req) {
-    context.log('Start ItemRead');
+    context.log('Start ChippRead');
     let tableName = req.params.table;
     let partitionName = req.params.partition;
     let result; 

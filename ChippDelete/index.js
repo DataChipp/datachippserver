@@ -17,7 +17,7 @@ async function deleteEntityAsync(tableService, ...args) {
 };
 
 module.exports = async function (context, req) {
-    context.log('Start ItemDelete');
+    context.log('Start ChippDelete');
 
     let tableName = req.params.table;;
     let partitionName = req.params.partition;

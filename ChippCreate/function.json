@@ -7,9 +7,9 @@
       "direction": "in",
       "name": "req",
       "methods": [
-        "delete"
+        "post"
       ],
-      "route": "items/{table}/{partition}/{id}"
+      "route": "chipps/{table}/{partition}"
     },
     {
       "type": "http",

@@ -9,7 +9,7 @@
       "methods": [
         "put"
       ],
-      "route": "items/{table}/{partition}/{id}"
+      "route": "chipps/{table}/{partition}/{id}"
     },
     {
       "type": "http",

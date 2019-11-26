@@ -17,7 +17,7 @@ async function replaceEntityAsync(tableService, ...args) {
 };
 
 module.exports = async function (context, req) {
-    context.log('Start ItemUpdate');
+    context.log('Start ChippUpdate');
 
     let tableName = req.params.table;
     let partitionName = req.params.partition;
