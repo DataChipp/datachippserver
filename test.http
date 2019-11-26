@@ -1,6 +1,6 @@
 
 @prefix = http
-@hostname= localhost:8081
+@hostname= localhost:7073
 @table= dev
 @partition = part1
 

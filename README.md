@@ -1,41 +1,41 @@
-# data server
-Data Server:  A no configuration Data RESTfull API using Azure Functions and Node
-
-### Running with port 7071:
-
-Clone or download Zip
-
+# data server  
+Data Server:  A no configuration Data RESTfull API using Azure Functions and Node  
+  
+### Running with port 7071:  
+  
+Clone or download Zip  
+  
 ```javascript
 rename UPDATE.local.settings.json to local.settings.json
 update "AZURE_STORAGE_CONNECTION_STRING" variable to a connection string in your Azure Portal storage. 
 See Azure Function section below if you need to create an Azure Storage resource
 ```
-
-**VS Code**
+  
+**VS Code**  
 ```javascript
 run from the debugger
 ```
 
-**Terminal**
+**Terminal**  
 ```javascript
 func start
-```
-
-**Azure Function**
-replace datachippdata with your function app name  
-
+```  
+  
+**Azure Function**  
+replace datachippdata with your function app name    
+  
 ```
 $ az login  
 ```
 * if need to login as device:  $ az login --use-device-code  
-
-If you do not have a resource group & storage already ...
+  
+If you do not have a resource group & storage already ...  
 ```javascript
 $ az group create --name datachipp --location centralus
 $ az storage account create --name datachippstorage --location centralus --resource-group datachipp --sku standard_lrs --kind StorageV2
 ```
 
-Create function app and publish
+Create function app and publish  
 ```javascript
 $ az functionapp create --name datachippdata --storage-account datachippstorage --resource-group datachipp --consumption-plan-location centralus
 
@@ -57,24 +57,24 @@ Click the "+ New application setting"
 Name  = AZURE_STORAGE_CONNECTION_STRING
 Value = [Value is the connection string from key1]
 ```
-Click OK and Save. You should see the app setting in the list
-
-
-## Testing
+Click OK and Save. You should see the app setting in the list  
+  
+  
+## Testing  
 There are 2 test files/scripts in the repo.  
   
 test.http --> local testing  
-  
+   
 testAzure.http --> Azure testing  
 ! update the @hostname= datachippdata.azurewebsites.net variable  
+   
+Both test perform CRUD test:    
+Get all chipps   
   
-Both test perform CRUD test:  
-Get all chipps  
-
-Create the Chipp  
-Read   the Chipp 
-Update the Chipp 
-Delete the Chipp 
+Create the Chipp   
+Read   the Chipp  
+Update the Chipp  
+Delete the Chipp  
 
 
 ## Roadmap

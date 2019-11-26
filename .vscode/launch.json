@@ -5,8 +5,8 @@
             "name": "Attach to Node Functions",
             "type": "node",
             "request": "attach",
-            "port": 9229,
-            "preLaunchTask": "func: host start --port 8081"
+            "port": 9273,
+            "preLaunchTask": "func: host start --port 7073"
         }
     ]
 }
