@@ -19,3 +19,18 @@ exports.entityToJSON = function (entity, includeMetadata=false) {
     });
     return result;
 }
+
+//While the Node.js Storage v10 is having table storage implemented, I recommend wrapping table storage code into a promise structure.
+exports.tableExistsAsync = async function (tableService, ...args) {
+    return new Promise((resolve, reject) => {
+        let promiseHandling = (err, result) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(result);
+            }
+        };
+        args.push(promiseHandling);
+        tableService.createTableIfNotExists.apply(tableService, args);
+    });
+};

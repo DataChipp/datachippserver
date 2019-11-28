@@ -42,6 +42,7 @@ module.exports = async function (context, req) {
     if (id) {
         // return item with RowKey 'id'
         try {
+            result = await _.tableExistsAsync(tableService, tableName);
             result = await retrieveEntityAsync(tableService, tableName, partitionName, id);
             //result = await entityToJSON(result);
             result = _.entityToJSON(result);
@@ -60,6 +61,7 @@ module.exports = async function (context, req) {
         let resultArray = [];
 
         try {
+            result = await _.tableExistsAsync(tableService, tableName);
             result = await queryEntitiesAsync(tableService, tableName, query, null);
 
             result.entries.forEach(k => {
