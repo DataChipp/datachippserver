@@ -6,13 +6,13 @@
 
 ###
 
-# @name getChipp
-GET {{prefix}}://{{hostname}}/api/chipps/{{table}}/{{partition}} HTTP/1.1
+# @name getData
+GET {{prefix}}://{{hostname}}/api/data/{{table}}/{{partition}} HTTP/1.1
 
 
 ###
-# @name createChipp
-POST {{prefix}}://{{hostname}}/api/chipps/{{table}}/{{partition}} HTTP/1.1
+# @name createData
+POST {{prefix}}://{{hostname}}/api/data/{{table}}/{{partition}} HTTP/1.1
 content-type: application/json
 
 {
@@ -24,15 +24,15 @@ content-type: application/json
 }
 
 ###
-@chippId = {{createChipp.response.body.RowKey._}}
+@Id = {{createData.response.body.RowKey}}
 
-# @name getChipp
-GET {{prefix}}://{{hostname}}/api/chipps/{{table}}/{{partition}}/{{chippId}} HTTP/1.1
+# @name getData
+GET {{prefix}}://{{hostname}}/api/data/{{table}}/{{partition}}/{{Id}} HTTP/1.1
 
 
 ###
-# @name updateChipp
-PUT {{prefix}}://{{hostname}}/api/chipps/{{table}}/{{partition}}/{{chippId}} HTTP/1.1
+# @name updateData
+PUT {{prefix}}://{{hostname}}/api/data/{{table}}/{{partition}}/{{Id}} HTTP/1.1
 content-type: application/json
 
 {
@@ -42,8 +42,8 @@ content-type: application/json
 }
 
 ###
-# @name deleteChipp
-DELETE {{prefix}}://{{hostname}}/api/chipps/{{table}}/{{partition}}/{{chippId}} HTTP/1.1
+# @name deleteData
+DELETE {{prefix}}://{{hostname}}/api/data/{{table}}/{{partition}}/{{Id}} HTTP/1.1
 
 ###
 

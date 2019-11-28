@@ -1,3 +1,4 @@
+const _ = require('../helper.js');
 const azure = require('azure-storage');
 const tableService = azure.createTableService();
 
@@ -31,10 +32,10 @@ module.exports = async function (context, req) {
         item.RowKey = id;
         item.PartitionKey = partitionName;
 
-
         try {
             // Depending on how you want this to behave you can also use tableService.mergeEntity
             result = await replaceEntityAsync(tableService, tableName, item);
+            result = _.entityToJSON(result, true);
             context.res.status(202).json(result);
         } catch (e) {
             context.log("Error: " + e);

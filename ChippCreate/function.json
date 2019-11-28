@@ -9,7 +9,7 @@
       "methods": [
         "post"
       ],
-      "route": "chipps/{table}/{partition}"
+      "route": "data/{table}/{partition}"
     },
     {
       "type": "http",

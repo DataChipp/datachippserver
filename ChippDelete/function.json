@@ -9,7 +9,7 @@
       "methods": [
         "delete"
       ],
-      "route": "chipps/{table}/{partition}/{id}"
+      "route": "data/{table}/{partition}/{id}"
     },
     {
       "type": "http",
