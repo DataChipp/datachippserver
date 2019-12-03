@@ -1,7 +1,7 @@
 # data server  
 Data Server:  A no configuration Data RESTfull API using Azure Functions and Node  
   
-### Running with port 7071:  
+### Running with port 7073:  
   
 Clone or download Zip  
   
@@ -18,7 +18,7 @@ run from the debugger
 
 **Terminal**  
 ```javascript
-func start
+func start --port 7073
 ```  
   
 **Azure Function**  

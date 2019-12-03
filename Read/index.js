@@ -58,18 +58,24 @@ module.exports = async function (context, req) {
         var query = new azure.TableQuery()
             .where('PartitionKey == ?', partitionName).top(100);
 
-        let resultArray = [];
+        let resultDetails = {};
 
         try {
             result = await _.tableExistsAsync(tableService, tableName);
             result = await queryEntitiesAsync(tableService, tableName, query, null);
 
+            resultDetails.status = "success";
+
+            if(result.continuationToken) resultDetails.continuationToken = result.continuationToken;
+
+            resultDetails.data = [];
+
             result.entries.forEach(k => {
                 let r = _.entityToJSON(k);
-                resultArray.push(r);
+                resultDetails.data.push(r);
             });
 
-            context.res.status(200).json(resultArray);
+            context.res.status(200).json(resultDetails);
         } catch (e) {
             context.log("Error: " + e);
             context.res.status(e.statusCode).json({ error: e });

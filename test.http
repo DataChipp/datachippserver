@@ -1,8 +1,8 @@
 
 @prefix = http
 @hostname= localhost:7073
-@table= crudvue
-@partition = authors
+@table= blog
+@partition = default
 
 ###
 
