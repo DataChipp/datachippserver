@@ -4,8 +4,9 @@ const tableService = azure.createTableService();
 
 //While the Node.js Storage v10 is having table storage implemented, 
 //I recommend wrapping table storage code into a promise structure.
-async function retrieveEntityAsync(tableService, ...args) {
-    return new Promise((resolve, reject) => {
+
+async function retrieveEntityAsync(tableService, tableName, partitionName, id) {
+    return new Promise( (resolve, reject) => {
         let promiseHandling = (err, result) => {
             if (err) {
                 reject(err);
@@ -13,12 +14,11 @@ async function retrieveEntityAsync(tableService, ...args) {
                 resolve(result);
             }
         };
-        args.push(promiseHandling);
-        tableService.retrieveEntity.apply(tableService, args);
+        tableService.retrieveEntity(tableName, partitionName, id, promiseHandling);
     });
 };
 
-async function queryEntitiesAsync(tableService, ...args) {
+async function queryEntitiesAsync(tableService, tableName, query, ctoken) {
     return new Promise((resolve, reject) => {
         let promiseHandling = (err, result) => {
             if (err) {
@@ -27,8 +27,7 @@ async function queryEntitiesAsync(tableService, ...args) {
                 resolve(result);
             }
         };
-        args.push(promiseHandling);
-        tableService.queryEntities.apply(tableService, args);
+        tableService.queryEntities(tableName, query, ctoken, promiseHandling);
     });
 };
 
@@ -44,9 +43,7 @@ module.exports = async function (context, req) {
         try {
             result = await _.tableExistsAsync(tableService, tableName);
             result = await retrieveEntityAsync(tableService, tableName, partitionName, id);
-            //result = await entityToJSON(result);
             result = _.entityToJSON(result);
-
             context.res.status(200).json(result);
         } catch (e) {
             context.log("Error: " + e);
