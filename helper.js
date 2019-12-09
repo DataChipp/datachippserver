@@ -1,11 +1,11 @@
-exports.uuidv4 = function () {
+exports.uuidv4 = () => {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
         var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
         return v.toString(16);
       });
 }
 
-exports.entityToJSON = function (entity, includeMetadata=false) {
+exports.entityToJSON = (entity, includeMetadata=false) => {
     let result = {};
     Object.keys(entity).forEach(k => {
         if (k !== ".metadata" || includeMetadata) {
@@ -21,7 +21,7 @@ exports.entityToJSON = function (entity, includeMetadata=false) {
 }
 
 //While the Node.js Storage v10 is having table storage implemented, I recommend wrapping table storage code into a promise structure.
-exports.tableExistsAsync = async function (tableService, ...args) {
+exports.tableExistsAsync = async (tableService, tableName) => {
     return new Promise((resolve, reject) => {
         let promiseHandling = (err, result) => {
             if (err) {
@@ -30,7 +30,7 @@ exports.tableExistsAsync = async function (tableService, ...args) {
                 resolve(result);
             }
         };
-        args.push(promiseHandling);
-        tableService.createTableIfNotExists.apply(tableService, args);
+
+        tableService.createTableIfNotExists(tableName, promiseHandling);
     });
 };
