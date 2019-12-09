@@ -5,7 +5,7 @@ const tableService = azure.createTableService();
 //While the Node.js Storage v10 is having table storage implemented, 
 //I recommend wrapping table storage code into a promise structure.
 
-async function retrieveEntityAsync(tableService, tableName, partitionName, id) {
+const retrieveEntityAsync = async (tableService, tableName, partitionName, id) => {
     return new Promise( (resolve, reject) => {
         let promiseHandling = (err, result) => {
             if (err) {
@@ -18,7 +18,7 @@ async function retrieveEntityAsync(tableService, tableName, partitionName, id) {
     });
 };
 
-async function queryEntitiesAsync(tableService, tableName, query, ctoken) {
+const queryEntitiesAsync = async (tableService, tableName, query, ctoken) => {
     return new Promise((resolve, reject) => {
         let promiseHandling = (err, result) => {
             if (err) {
@@ -31,7 +31,7 @@ async function queryEntitiesAsync(tableService, tableName, query, ctoken) {
     });
 };
 
-module.exports = async function (context, req) {
+module.exports = async (context, req) => {
     context.log('Start ChippRead');
     let tableName = req.params.table;
     let partitionName = req.params.partition;
@@ -52,7 +52,7 @@ module.exports = async function (context, req) {
     }
     else {
         // return the top x items
-        var query = new azure.TableQuery()
+        let query = new azure.TableQuery()
             .where('PartitionKey == ?', partitionName).top(100);
 
         let resultDetails = {};
